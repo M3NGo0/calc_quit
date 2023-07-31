@@ -37,6 +37,8 @@ EXP	([Ee][-+]?[0-9]+)
 "log"	{ yylval.fn = B_log; return FUNC; }
 "print"	{ yylval.fn = B_print; return FUNC; }
 
+"quit" { printf("The process is end."); exit(0); /* abort(); */ } 
+
 [a-zA-Z][a-zA-Z0-9]* { yylval.s = lookup(yytext); return NAME; }
 
 [0-9]+"."[0-9]*{EXP}? |
