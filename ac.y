@@ -60,8 +60,8 @@ exp : exp CMP exp	{ $$ = newcmp($2, $1, $3); }
 	| NAME		{ $$ = newref($1); }
 	| NAME '=' exp	{ $$ = newasgn($1, $3); }
 	| FUNC '(' explist ')' { $$ = newfunc($1, $3); }
-	| QUIT { printf(" The process is end"); free($$); exit(0); }
 	| NAME '(' explist ')' { $$ = newcall($1, $3); }
+	| QUIT { printf("The process is end"); free($$); exit(0); }
 	;
 
 explist: exp
