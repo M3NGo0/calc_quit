@@ -1,4 +1,4 @@
-# fb3-1
+# calc_quit
 ## change 1
 https://github.com/M3NGo0/fb3-1/blob/6fc03ca5cb4643f24c4fe15d3f39cc0b336f09b2/ac.l#L40
 
