@@ -12,12 +12,14 @@
 	struct symbol *s;
 	struct symlist *sl;
 	int fn;
+	int quit;
 }
 
 %token <d> NUMBER;
 %token <s> NAME;
 %token <fn> FUNC;
 %token EOL;
+%token QUIT;
 
 %token IF THEN ELSE WHILE DO LET
 
@@ -58,6 +60,7 @@ exp : exp CMP exp	{ $$ = newcmp($2, $1, $3); }
 	| NAME		{ $$ = newref($1); }
 	| NAME '=' exp	{ $$ = newasgn($1, $3); }
 	| FUNC '(' explist ')' { $$ = newfunc($1, $3); }
+	| QUIT { printf(" The process is end"); free($$); exit(0); }
 	| NAME '(' explist ')' { $$ = newcall($1, $3); }
 	;
 
